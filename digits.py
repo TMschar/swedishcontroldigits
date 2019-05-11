@@ -1,9 +1,11 @@
+#!/usr/env/bin python3
+
 import math
 
 
 def add_control_digit(original_digits: str, add_length: bool=True):
     if len(original_digits) >= 23:
-        raise(Exception('Cannot be longer than 25'))
+        raise(Exception('Cannot be longer than 23'))
 
     original_digits = str(original_digits)
 
@@ -42,3 +44,11 @@ def add_control_digit(original_digits: str, add_length: bool=True):
         control_digit = 0
 
     return f'{original_digits}{length_str}{control_digit}'
+
+
+if __name__ == '__main__':
+    add_length = bool(input("Add length (True/False): "))
+    check = str(input("Digits to create check for: "))
+    output = add_control_digit(check, add_length)
+
+    print(f'\nResult: {output}')
